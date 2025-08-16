@@ -1,0 +1,123 @@
+//FOR a PART
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[100], n, tmp, i, j;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    cout << "Enter the elements of the array: ";
+    for (i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    i = 0;
+    j = n - 1;
+    while (i < j) {
+        tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+        i++;
+        j--;
+    }
+
+    cout << "After reverse: ";
+    for (i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+
+
+
+
+//FOR b PART
+#include <iostream>
+using namespace std;
+
+int main() {
+    int m1[10][10], m2[10][10], m3[10][10];
+    int r1, c1, r2, c2, i, j, k;
+
+    cout << "Enter rows and cols of first: ";
+    cin >> r1 >> c1;
+    cout << "Enter rows and cols of second: ";
+    cin >> r2 >> c2;
+
+    if (c1 != r2) {
+        cout << "Not possible!"<<endl;
+        return 0;
+    }
+
+    cout << "Matrix1:"<<endl;
+    for (i = 0; i < r1; i++) {
+        for (j = 0; j < c1; j++) {
+            cin >> m1[i][j];
+        }
+    }
+
+    cout << "Matrix2:"<<endl;
+    for (i = 0; i < r2; i++) {
+        for (j = 0; j < c2; j++) {
+            cin >> m2[i][j];
+        }
+    }
+
+    for (i = 0; i < r1; i++) {
+        for (j = 0; j < c2; j++) {
+            m3[i][j] = 0;
+            for (k = 0; k < c1; k++) {
+                m3[i][j] += m1[i][k] * m2[k][j];
+            }
+        }
+    }
+
+    cout << "Result:"<<endl;
+    for (i = 0; i < r1; i++) {
+        for (j = 0; j < c2; j++) {
+            cout << m3[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+
+
+
+
+
+FOR c PART
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x[10][10], y[10][10];
+    int r, c, i, j;
+
+    cout << "Enter rows and cols: ";
+    cin >> r >> c;
+
+    cout << "Matrix:"<<endl;
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            cin >> x[i][j];
+        }
+    }
+
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            y[j][i] = x[i][j];
+        }
+    }
+
+    cout << "Transpose:"<<endl;
+    for (i = 0; i < c; i++) {
+        for (j = 0; j < r; j++) {
+            cout << y[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
